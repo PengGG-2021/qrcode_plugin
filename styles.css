@@ -1,0 +1,80 @@
+#qr-code-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  z-index: 9999;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#qr-code-container.collapsed {
+  transform: translateY(calc(100% - 40px));
+}
+
+#qr-code-wrapper {
+  position: relative;
+  width: 256px;
+  height: 256px;
+}
+
+#qr-code {
+  width: 256px;
+  height: 256px;
+}
+
+#logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#qr-logo {
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: contain;
+}
+
+#site-name {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+#page-title {
+  margin-top: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 添加收起时的样式 */
+#qr-code-container.collapsed #qr-code-wrapper,
+#qr-code-container.collapsed #site-name,
+#qr-code-container.collapsed #page-title {
+  display: none;
+}
+
+#qr-code-container.collapsed::before {
+  content: "QR Code";
+  font-weight: bold;
+  color: #333;
+}
+
+/* 添加悬停效果 */
+#qr-code-container:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
